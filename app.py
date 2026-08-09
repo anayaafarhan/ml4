@@ -29,9 +29,9 @@ def load_metadata():
         return json.load(f)
 
 
-def format_inr(amount: float) -> str:
-    """Indian digit grouping (5,00,000 instead of 500,000), plus a lakh/crore
-    label — how car prices are actually written and read in this market."""
+def format_pkr(amount: float) -> str:
+    """South Asian digit grouping (12,00,000 instead of 1,200,000), plus a
+    lakh/crore label — how car prices actually get written and read here."""
     amount = int(round(amount))
     sign = "-" if amount < 0 else ""
     amount = abs(amount)
@@ -46,7 +46,7 @@ def format_inr(amount: float) -> str:
         if rest:
             groups.insert(0, rest)
         s = ",".join(groups) + "," + last3
-    rupees = f"{sign}₹{s}"
+    rupees = f"{sign}Rs {s}"
     if amount >= 1_00_00_000:
         label = f" (~{amount / 1_00_00_000:.2f} crore)"
     elif amount >= 1_00_000:
@@ -61,8 +61,8 @@ st.set_page_config(page_title="Used Car Price Estimator", page_icon="\U0001F697"
 
 st.title("Used Car Price Estimator")
 st.caption(
-    "Trained on ~3,500 cleaned listings from CarDekho (India, data collected "
-    "in 2020). Fill in the details below to get an estimated resale price."
+    "Trained on ~15,650 cleaned \"Used\" listings from OLX Pakistan. Fill in "
+    "the details below to get an estimated resale price in PKR."
 )
 
 model = load_model()
@@ -74,7 +74,7 @@ with st.form("car_details"):
     with col1:
         brand = st.selectbox("Brand", meta["brands"])
         fuel = st.selectbox("Fuel type", meta["fuel_types"])
-        transmission = st.radio("Transmission", meta["transmissions"], horizontal=True)
+        city = st.selectbox("Registered city", meta["cities"])
 
     with col2:
         min_age, max_age = meta["car_age_range"]
@@ -83,11 +83,9 @@ with st.form("car_details"):
         km_driven = st.number_input(
             "Kilometers driven", min_value=0,
             max_value=int(meta["km_driven_range"][1] * 1.5),
-            value=45000, step=1000,
+            value=60000, step=1000,
         )
-        seller_type = st.selectbox("Seller type", meta["seller_types"])
-
-    owner = st.selectbox("Ownership history", meta["owner_types"])
+        transaction_type = st.selectbox("Preferred sale type", meta["transaction_types"])
 
     submitted = st.form_submit_button("Estimate price", use_container_width=True)
 
@@ -97,21 +95,20 @@ if submitted:
         "car_age": car_age,
         "km_driven": km_driven,
         "fuel": fuel,
-        "seller_type": seller_type,
-        "transmission": transmission,
-        "owner": owner,
+        "city": city,
+        "transaction_type": transaction_type,
     }])
 
     prediction = float(model.predict(row)[0])
     prediction = max(prediction, 0)
 
-    st.subheader(format_inr(prediction))
+    st.subheader(format_pkr(prediction))
 
     rmse = meta["test_rmse"]
     low, high = max(prediction - rmse, 0), prediction + rmse
     st.write(
-        f"Typical range for this estimate: **{format_inr(low)} – {format_inr(high)}** "
-        f"(based on the model's average error of about {format_inr(rmse)} on cars it "
+        f"Typical range for this estimate: **{format_pkr(low)} – {format_pkr(high)}** "
+        f"(based on the model's average error of about {format_pkr(rmse)} on cars it "
         "hadn't seen during training)."
     )
 
@@ -122,7 +119,7 @@ if submitted:
         article = "an" if brand[0] in "AEIOU" else "a"
         st.write(
             f"This is **{abs(diff_pct):.0f}% {direction}** the median listing price "
-            f"for {article} {brand} in the training data ({format_inr(brand_median)})."
+            f"for {article} {brand} in the training data ({format_pkr(brand_median)})."
         )
 
     st.caption(
@@ -133,5 +130,5 @@ if submitted:
 st.divider()
 st.caption(
     "Built by Anaya Farhan as part of the AI/ML Internship (Task 04) at Devixo Solutions. "
-    "Dataset: CarDekho used-car listings."
+    "Dataset: OLX Pakistan used-car listings."
 )
