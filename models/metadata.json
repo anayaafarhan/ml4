@@ -1,0 +1,78 @@
+{
+  "chosen_model": "Gradient Boosting (tuned)",
+  "test_rmse": 157871.26,
+  "test_r2": 0.71,
+  "brands": [
+    "Audi",
+    "BMW",
+    "Chevrolet",
+    "Datsun",
+    "Fiat",
+    "Ford",
+    "Honda",
+    "Hyundai",
+    "Mahindra",
+    "Maruti",
+    "Mercedes-Benz",
+    "Mitsubishi",
+    "Nissan",
+    "Other",
+    "Renault",
+    "Skoda",
+    "Tata",
+    "Toyota",
+    "Volkswagen"
+  ],
+  "fuel_types": [
+    "CNG",
+    "Diesel",
+    "Electric",
+    "LPG",
+    "Petrol"
+  ],
+  "seller_types": [
+    "Dealer",
+    "Individual",
+    "Trustmark Dealer"
+  ],
+  "transmissions": [
+    "Automatic",
+    "Manual"
+  ],
+  "owner_types": [
+    "First Owner",
+    "Fourth & Above Owner",
+    "Second Owner",
+    "Third Owner"
+  ],
+  "car_age_range": [
+    0,
+    28
+  ],
+  "km_driven_range": [
+    1,
+    244000
+  ],
+  "median_price_by_brand": {
+    "Audi": 1295000.0,
+    "BMW": 1200000.0,
+    "Chevrolet": 197500.0,
+    "Datsun": 290000.0,
+    "Fiat": 250000.0,
+    "Ford": 450000.0,
+    "Honda": 490000.0,
+    "Hyundai": 345000.0,
+    "Mahindra": 545000.0,
+    "Maruti": 275000.0,
+    "Mercedes-Benz": 999500.0,
+    "Mitsubishi": 825000.0,
+    "Nissan": 437500.0,
+    "Other": 430000.0,
+    "Renault": 365000.0,
+    "Skoda": 400000.0,
+    "Tata": 196500.0,
+    "Toyota": 605000.0,
+    "Volkswagen": 400000.0
+  },
+  "trained_rows": 3458
+}
