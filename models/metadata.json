@@ -1,78 +1,84 @@
 {
   "chosen_model": "Gradient Boosting (tuned)",
-  "test_rmse": 157871.26,
-  "test_r2": 0.71,
+  "test_rmse": 238829.94,
+  "test_r2": 0.79,
   "brands": [
     "Audi",
     "BMW",
+    "Changan",
     "Chevrolet",
-    "Datsun",
-    "Fiat",
-    "Ford",
+    "Classic & Antiques",
+    "Daewoo",
+    "Daihatsu",
+    "FAW",
     "Honda",
     "Hyundai",
-    "Mahindra",
-    "Maruti",
-    "Mercedes-Benz",
+    "KIA",
+    "Lexus",
+    "Mazda",
+    "Mercedes",
     "Mitsubishi",
     "Nissan",
     "Other",
-    "Renault",
-    "Skoda",
-    "Tata",
-    "Toyota",
-    "Volkswagen"
+    "Subaru",
+    "Suzuki",
+    "Toyota"
   ],
   "fuel_types": [
     "CNG",
     "Diesel",
-    "Electric",
+    "Hybrid",
     "LPG",
     "Petrol"
   ],
-  "seller_types": [
-    "Dealer",
-    "Individual",
-    "Trustmark Dealer"
+  "cities": [
+    "Bahawalpur",
+    "Faisalabad",
+    "Gujranwala",
+    "Hyderabad",
+    "Islamabad",
+    "Karachi",
+    "Lahore",
+    "Multan",
+    "Not Specified",
+    "Other City",
+    "Peshawar",
+    "Rawalpindi",
+    "Sialkot"
   ],
-  "transmissions": [
-    "Automatic",
-    "Manual"
-  ],
-  "owner_types": [
-    "First Owner",
-    "Fourth & Above Owner",
-    "Second Owner",
-    "Third Owner"
+  "transaction_types": [
+    "Cash",
+    "Installment/Leasing"
   ],
   "car_age_range": [
     0,
-    28
+    55
   ],
   "km_driven_range": [
     1,
-    244000
+    329960
   ],
   "median_price_by_brand": {
-    "Audi": 1295000.0,
-    "BMW": 1200000.0,
-    "Chevrolet": 197500.0,
-    "Datsun": 290000.0,
-    "Fiat": 250000.0,
-    "Ford": 450000.0,
-    "Honda": 490000.0,
-    "Hyundai": 345000.0,
-    "Mahindra": 545000.0,
-    "Maruti": 275000.0,
-    "Mercedes-Benz": 999500.0,
-    "Mitsubishi": 825000.0,
-    "Nissan": 437500.0,
-    "Other": 430000.0,
-    "Renault": 365000.0,
-    "Skoda": 400000.0,
-    "Tata": 196500.0,
-    "Toyota": 605000.0,
-    "Volkswagen": 400000.0
+    "Audi": 1087500.0,
+    "BMW": 1450000.0,
+    "Changan": 395000.0,
+    "Chevrolet": 350000.0,
+    "Classic & Antiques": 365500.0,
+    "Daewoo": 220000.0,
+    "Daihatsu": 560000.0,
+    "FAW": 675000.0,
+    "Honda": 850000.0,
+    "Hyundai": 395000.0,
+    "KIA": 279999.0,
+    "Lexus": 1975000.0,
+    "Mazda": 817500.0,
+    "Mercedes": 1050000.0,
+    "Mitsubishi": 605000.0,
+    "Nissan": 645000.0,
+    "Other": 300000.0,
+    "Subaru": 720000.0,
+    "Suzuki": 450000.0,
+    "Toyota": 1200000.0
   },
-  "trained_rows": 3458
+  "trained_rows": 15650
 }

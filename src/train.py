@@ -31,7 +31,7 @@ from data_processing import (
 )
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA_PATH = ROOT / "data" / "cardekho_used_cars.csv"
+DATA_PATH = ROOT / "data" / "olx_used_cars_pakistan.csv"
 MODEL_PATH = ROOT / "models" / "car_price_model.pkl"
 METADATA_PATH = ROOT / "models" / "metadata.json"
 REPORT_PATH = ROOT / "reports" / "model_comparison.csv"
@@ -179,9 +179,8 @@ def main():
         "test_r2": round(float(tuned_metrics["R2"]), 4),
         "brands": sorted(df["brand"].unique().tolist()),
         "fuel_types": sorted(df["fuel"].unique().tolist()),
-        "seller_types": sorted(df["seller_type"].unique().tolist()),
-        "transmissions": sorted(df["transmission"].unique().tolist()),
-        "owner_types": sorted(df["owner"].unique().tolist()),
+        "cities": sorted(df["city"].unique().tolist()),
+        "transaction_types": sorted(df["transaction_type"].unique().tolist()),
         "car_age_range": [int(df["car_age"].min()), int(df["car_age"].max())],
         "km_driven_range": [int(df["km_driven"].min()), int(df["km_driven"].max())],
         "median_price_by_brand": (
