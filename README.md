@@ -5,11 +5,11 @@ not just a notebook. You give it a car's details (brand, age, mileage, fuel
 type, city, how you'd sell it) and it estimates what that car would go for,
 using a model trained on real OLX Pakistan listings.
 
-I originally built this on an Indian dataset (CarDekho) since that's what
-most used-car tutorials default to, then swapped it out for real Pakistani
-listings — it didn't make sense to price cars in Indian Rupees for a
-project built from Pakistan, and honestly the OLX Pakistan data ended up
-messier and more interesting to clean anyway.
+I picked OLX Pakistan over the usual tutorial datasets because the data is
+genuinely messy in ways I could actually reason about — missing cities,
+new and used listings mixed together, a "Range Rover" vs. "Land Rover"
+brand split, price entries with an extra zero or two — rather than
+something already scrubbed clean for you.
 
 ## What's in here
 
